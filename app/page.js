@@ -109,7 +109,7 @@ export default function Home() {
                  {/* Phone mockup for the video player */}
                 <div className="bg-slate-800 p-4 rounded-[2.5rem] shadow-2xl">
                     <div className="bg-black rounded-[2rem] overflow-hidden">
-                       <YouTube videoId="1KjYlLBM9j4" opts={videoOpts} onReady={onReady} />
+                       <YouTube videoId="pKy7cNtaJ0c" opts={videoOpts} onReady={onReady} />
                     </div>
                 </div>
             </div>
