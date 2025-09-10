@@ -10,8 +10,8 @@ import YouTube from 'react-youtube';
 export default function Home() {
   // YouTube video options for the feature section video.
   const videoOpts = {
-    height: '560', 
-    width: '315',  
+    height: '560',
+    width: '315',
     playerVars: {
       autoplay: 0,
     },
@@ -22,26 +22,82 @@ export default function Home() {
     // event.target.pauseVideo();
   }
 
+  // SVG Icon components for the new hero illustration.
+  const CheckIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
+  );
+  const HomeIcon = () => (
+     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+  );
+  const ClockIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+
+
   return (
     <div className="bg-white">
       {/* Hero Section: Matched to the new design with a darker background and illustration. */}
-      <section className="bg-teal-900 text-white text-center py-20 lg:py-32">
+      <section className="bg-green-900 text-white text-center py-20 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">The first <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-purple-400">AI-powered</span> Mortgage</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">The first <br/><span className="w-full text-transparent bg-clip-text font-extrabold bg-gradient-to-r from-green-300 via-blue-400 to-purple-500">AI-powered</span> Mortgage</h1>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Our technology has streamlined the entire mortgage process to save you time and money. Over $100 billion funded.</p>
-          <Link href="/start" className="text-white bg-green-700 hover:bg-green-600 font-bold rounded-full text-me px-5 py-2.5">
+          <Link href="/start" className="btn-primary text-lg">
             See my rates
           </Link>
-          {/* Simple illustration mimicking the app UI from the screenshot */}
-          <div className="mt-16 max-w-2xl mx-auto bg-gray-800/20 p-4 rounded-xl backdrop-blur-sm">
-             <div className="bg-white/90 p-6 rounded-lg">
-                <div className="flex items-center justify-between">
-                    <div className="w-24 h-8 bg-gray-200 rounded"></div>
-                    <div className="w-8 h-8 bg-green-200 rounded-full"></div>
+          
+          {/* Illustration Used AI for This */}
+          <div className="mt-12">
+            <p className="text-sm text-gray-300 mb-4">3 min | No hard credit check</p>
+            <div className="relative h-[450px] w-full max-w-xs mx-auto">
+              {/* Phone body */}
+              <div className="absolute inset-x-4 top-0 h-full bg-black/30 rounded-[2.5rem] shadow-2xl"></div>
+
+              {/* Floating Card 1: Pre-approved */}
+              <div className="absolute top-24 -left-20 w-60 p-4 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg text-left animate-fade-in-up">
+                <div className="flex items-center space-x-2 mb-2">
+                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"><CheckIcon /></div>
                 </div>
-                <div className="mt-4 h-12 bg-gray-200 rounded"></div>
-                <div className="mt-2 h-12 bg-gray-200 rounded"></div>
-             </div>
+                <p className="font-semibold">Congrats, you're pre-approved for a loan up to</p>
+                <p className="text-4xl font-bold text-green-300">$450,000</p>
+              </div>
+
+              {/* Floating Card 2: FICO Score */}
+              <div className="absolute top-8 -right-24 w-64 p-4 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg text-left animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 relative">
+                    <div className="w-16 h-16 border-4 border-green-400 rounded-full"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="font-bold text-xl">580</span>
+                      <span className="text-xs">FICO</span>
+                    </div>
+                     <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center border-2 border-green-900"><CheckIcon /></div>
+                  </div>
+                  <p className="pt-2">You don't need perfect credit to qualify.</p>
+                </div>
+              </div>
+
+              {/* Floating Card 3: Instant Answers */}
+              <div className="absolute top-56 -right-16 w-60 p-4 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg flex items-center space-x-3 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                <div className="w-10 h-10 flex-shrink-0 bg-green-500/50 rounded-full flex items-center justify-center text-green-200 shadow-lg ring-2 ring-green-400/50">
+                    <HomeIcon/>
+                </div>
+                <p className="text-sm text-left">Instant answers — anytime, anywhere with Betsy™ AI.</p>
+              </div>
+
+               {/* Floating Card 4: Customized Rates */}
+              <div className="absolute bottom-4 -left-12 w-64 p-4 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg flex items-center space-x-3 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+                <div className="w-10 h-10 flex-shrink-0 bg-green-500/50 rounded-full flex items-center justify-center text-green-200">
+                    <ClockIcon/>
+                </div>
+                <p className="text-sm text-left">See your customized rate options in seconds.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -53,7 +109,7 @@ export default function Home() {
                  {/* Phone mockup for the video player */}
                 <div className="bg-slate-800 p-4 rounded-[2.5rem] shadow-2xl">
                     <div className="bg-black rounded-[2rem] overflow-hidden">
-                       <YouTube videoId="pKy7cNtaJ0c" opts={videoOpts} onReady={onReady} />
+                       <YouTube videoId="1KjYlLBM9j4" opts={videoOpts} onReady={onReady} />
                     </div>
                 </div>
             </div>
